@@ -21,6 +21,11 @@ var execute = function (sql, callback) {
     db.end();
 }
 
+var query = function (sql, inserts, callback) {
+    sql = mysql.format(sql, inserts);
+    return execute(sql, callback);
+}
+
 var findAll = function (table, callback) {
     var sql = "SELECT * FROM ??";
     var inserts = [table];
@@ -59,3 +64,4 @@ exports.findAll = findAll;
 exports.findBy = findBy;
 exports.remove = remove;
 exports.insert = insert;
+exports.query = query;

@@ -1,6 +1,6 @@
 var manager = require('../libs/db.queries');
 
-var table = 'mvondo_users';
+var table = 'users';
 
 
 var add = function(values, callback){
@@ -20,11 +20,12 @@ var getByUsername = function(username, callback){
 };
 
 var authenticate = function(user, callback){
-	return manager.findBy(table, 'username', user.username, function(data){
+    var sql = "SELECT * FROM ?? WHERE ?? = ? AND ?? = ?";
+    var inserts = [table, 'username', user.username, 'password', user.password];
+	return manager.query(sql, inserts, function(data){
             if ((data == false) || (data.length == 0)) {
                 callback(false);
             } else {
-                if(data[0].password == user.password)
                 callback(data[0]);
             }
         });

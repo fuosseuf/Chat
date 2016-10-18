@@ -6,7 +6,7 @@ exports.init = function(app){
 	app.set('secret', 'langouste');
 };
 
-exports.dbname = 'mvondocofpppd';
-exports.dbuser = 'mvondocofpppd';
-exports.dbpwd = 'Mvondo2016';
-exports.dbhost = 'mvondocofpppd.mysql.db';
+exports.dbname = 'mvondo';
+exports.dbuser = 'mvondo';
+exports.dbpwd = 'mvondo';
+exports.dbhost = 'localhost';

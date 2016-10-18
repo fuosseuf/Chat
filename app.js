@@ -1,12 +1,14 @@
 var express = require('express'),
-	server = require('http'),
-        path = require('path'),
+	http = require('http'),
+    path = require('path'),
 	config = require('./core/config');
-
+	
 var app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
 
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('io', io);
 config.config(app);
-app.listen(3030, function(){
-	console.log('Demarrage du server ...');
-});
+
+server.listen(3030);
