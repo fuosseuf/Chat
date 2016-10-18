@@ -1,8 +1,8 @@
 (function ($) {
-	var msgtpl_left = $('#msgtpl-left').html();
-	var msgtpl_right = $('#msgtpl-right').html();
-	var usertpl_left = $('#usertpl-left').html();
-	var usertpl_right = $('#usertpl-right').html();
+	var msgtpl_left = '<div class="chat-box-left">{{message}}</div><div class="chat-box-name-left"><img src="{{user.avatar}}" alt="{{user.username}}" class="img-circle" />-  {{user.username}}</div><hr class="hr-clas" />';
+	var msgtpl_right = '<div class="chat-box-right">{{message}}</div><div class="chat-box-name-right"><img src="{{user.avatar}}" alt="{{user.username}}" class="img-circle" />-  {{user.username}}</div><hr class="hr-clas" />';
+	var usertpl_left = '<div class="chat-box-online-left"><img src="{{avatar}}" alt="{{username}}" class="img-circle" />- {{username}}<br />( <small>Active from 3 hours</small> )</div><hr class="hr-clas-low" />';
+	var usertpl_right = '<div class="chat-box-online-right"><img src="{{user.avatar}}" alt="{{username}}" class="img-circle" />- {{username}} <br />( <small>Active from 3 hours</small> )</div><hr class="hr-clas-low" />';
 	$('#msgtpl-left').remove();
 	$('#msgtpl-right').remove();
 	$('#usertpl-left').remove();
@@ -15,7 +15,7 @@
 			id: $('#datas').attr('userid'),
 		});
 
-	socket.on('newUser', function(user){  console.log(Mustache.render(usertpl_left, user), user);
+	socket.on('newUser', function(user){  console.log(user, usertpl_left);
 		$('#users').append(Mustache.render(usertpl_left, user));
 	});
 
