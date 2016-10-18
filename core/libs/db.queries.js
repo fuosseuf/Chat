@@ -1,16 +1,6 @@
-var mysql = require('mysql'),
-        params = require('../parameters');
 
-var db = mysql.createConnection({
-    host: params.dbhost,
-    user: params.dbuser,
-    password: params.dbpwd,
-    database: params.dbname
-});
 
-var execute = function (sql, callback) {
-    console.log(sql);
-    db.connect();
+var execute = function (sql, db, callback) {
     db.query(sql, function (err, results) {
         if (err) {
             console.log(err);
@@ -18,45 +8,44 @@ var execute = function (sql, callback) {
         }
         callback(results);
     });
-    db.end();
 }
 
-var query = function (sql, inserts, callback) {
-    sql = mysql.format(sql, inserts);
-    return execute(sql, callback);
+var query = function (sql, inserts, db, callback) {
+    sql = db.format(sql, inserts);
+    return execute(sql, db, callback);
 }
 
-var findAll = function (table, callback) {
+var findAll = function (table, db, callback) {
     var sql = "SELECT * FROM ??";
     var inserts = [table];
-    sql = mysql.format(sql, inserts);
-    return execute(sql, callback);
+    sql = db.format(sql, inserts);
+    return execute(sql, db, callback);
 };
 
-var findBy = function (table, field, value, callback) {
+var findBy = function (table, field, value, db, callback) {
     var sql = "SELECT * FROM ?? WHERE ?? = ?";
     var inserts = [table, field, value];
-    sql = mysql.format(sql, inserts);
-    return execute(sql, callback);
+    sql = db.format(sql, inserts);
+    return execute(sql, db, callback);
 };
 
-var find = function (table, value, callback) {
-    return findBy(table, 'id', value, callback);
+var find = function (table, value, db, callback) {
+    return findBy(table, 'id', value, db, callback);
 };
 
-var remove = function (table, value, callback) {
+var remove = function (table, value, db, callback) {
     var sql = "DELETE FROM ?? WHERE ?? = ?";
     var inserts = [table, value];
-    sql = mysql.format(sql, inserts);
-    return execute(sql, callback);
+    sql = db.format(sql, inserts);
+    return execute(sql, db, callback);
 };
 
 
-var insert = function (table, values, callback) {
+var insert = function (table, values, db, callback) {
     var sql = "INSERT INTO ?? SET ?";
     var inserts = [table, values];
-    sql = mysql.format(sql, inserts);
-    return execute(sql, callback);
+    sql = db.format(sql, inserts);
+    return execute(sql, db, callback);
 };
 
 exports.find = find;

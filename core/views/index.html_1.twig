@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Talk to me!!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="login">
+            <h1>Talk to me!</h1>
+            <form id="connect"  method="post" action="/login">
+                <input type="text" name="username" placeholder="Username" required="required" />
+                <input type="password" name="pwd" placeholder="Password" required="required" />
+                <button type="submit" class="btn btn-primary btn-block btn-large">Log In</button>
+            </form>
+            <br>
+            
+            <form id="register"  method="post" action="/register">
+                <input type="text" name="username" placeholder="Username" required="required" />
+                <input type="email" name="email" placeholder="Email" required="required" />
+                <input type="password" name="pswd" placeholder="Password" required="required" />
+                <input type="password" name="repswd" placeholder="Password confirmation" required="required" />
+                <button type="submit" class="btn btn-block btn-large">Register</button>
+            </form>
+            <br>
+            
+            
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+            <script src="js/login.js"></script>
+        </div>
+    </body>
+</html>

@@ -1,70 +1,54 @@
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
-    <title>Talk to Me!</title>
-    <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONT AWESOME  CSS -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-</head>
-<body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!--[if IE]>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <![endif]-->
+        <title>Talk to Me!</title>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container bootstrap snippet">
+            <div id="datas" username="{{user.username}}"
+                 email="{{user.email}}"
+                 userid="{{user.id}}"
+                 style="display: none;"></div>
+            <div class="row">
+                <div class="col-md-4 bg-white ">
+                    <div class=" row border-bottom padding-sm" style="height: 40px;">En ligne</div>
+                    <ul id="users" class="friend-list"></ul>
+                </div>
 
-
-    <div class="container">
-        <div class="row pad-top pad-bottom">
-        <div id="datas" username="{{user.username}}"
-            email="{{user.email}}"
-            userid="{{user.id}}"
-            style="display: none;"></div>
-
-            <div class=" col-lg-8 col-md-6 col-sm-6">
-                <div class="chat-box-div">
-                    <div class="chat-box-head">HISTORIQUE DU SALON</div>
-                    <div  id="messages" class="panel-body chat-box-main"></div>
-                    <div class="chat-box-footer">
+                <!--=========================================================-->
+                <!-- selected chat -->
+                <div class="col-md-8 bg-white ">
+                    <div class="chat-message">
+                        <ul class="chat" id="messages"> </ul>
+                    </div>
+                    <div class="chat-box bg-white">
                         <div class="input-group">
-                            <form id="form" action="">
-                                <input type="text" id="message" class="form-control" placeholder="Entrez votre texte ici...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-info" type="submit">SEND</button>
-                                </span>
-                            </form>
-                        </div>
-                    </div>
+                            <input class="form-control border no-shadow no-rounded"  id="message" placeholder="Entrez votre texte ici...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success no-rounded" id="submit">Envoyer</button>
+                            </span>
 
-                </div>
-
+                        </div><!-- /input-group -->	
+                    </div>            
+                </div>        
             </div>
-            <div class="col-lg-4 col-md-3 col-sm-3">
-                <div class="chat-box-online-div">
-                    <div class="chat-box-online-head">
-                        ONLINE USERS 
-                    </div>
-                    <div id="users" class="panel-body chat-box-online"></div>
-
-                </div>
-
-            </div>
-            
         </div>
-    </div>
 
-    <!-- USING SCRIPTS BELOW TO REDUCE THE LOAD TIME -->
-    <!-- CORE JQUERY SCRIPTS FILE -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- CORE BOOTSTRAP SCRIPTS  FILE -->
-    <script src="assets/js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/mustache.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.0/socket.io.js"></script>
-    <script type="text/javascript" src="js/client.js"></script>
-</body>
+
+        <script src="assets/js/jquery-1.11.1.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/mustache.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.0/socket.io.js"></script>
+        <script type="text/javascript" src="js/client.js"></script>
+    </body>
 
 </html>

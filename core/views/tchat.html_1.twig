@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Talk to Me!</title>
+     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row pad-top pad-bottom">
+        <div id="datas" username="{{user.username}}"
+            email="{{user.email}}"
+            userid="{{user.id}}"
+            style="display: none;"></div>
+
+            <div class=" col-lg-8 col-md-6 col-sm-6">
+                <div class="chat-box-div">
+                    <div class="chat-box-head">HISTORIQUE DU SALON</div>
+                    <div  id="messages" class="panel-body chat-box-main"></div>
+                    <div class="chat-box-footer">
+                        <div class="input-group">
+                            <form id="form" action="">
+                                <input type="text" id="message" class="form-control" placeholder="Entrez votre texte ici...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info" type="submit">SEND</button>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-3">
+                <div class="chat-box-online-div">
+                    <div class="chat-box-online-head">
+                        ONLINE USERS 
+                    </div>
+                    <div id="users" class="panel-body chat-box-online"></div>
+
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mustache.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.0/socket.io.js"></script>
+    <script type="text/javascript" src="js/client.js"></script>
+</body>
+
+</html>
